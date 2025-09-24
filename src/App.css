@@ -1,4 +1,5 @@
 /* Main container (card style) */
+/* Main container (card style) */
 .todo-container {
   position: fixed;
   top: 40px;
@@ -14,6 +15,9 @@
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  max-height: 85vh;       /* prevents going beyond viewport */
+  overflow-y: auto;       /* enable scrolling inside container */
 }
 
 /* Heading */
@@ -68,6 +72,9 @@
   padding: 0;
   margin-top: 18px;
   width: 100%;
+  
+  max-height: 55vh;       /* limit task area */
+  overflow-y: auto;       /* scroll only tasks */
 }
 
 /* Each task item */
@@ -91,18 +98,52 @@
   background: #ecfdf5;
 }
 
-/* Optional delete button for tasks */
 .delete-btn {
   background: #e74c3c;
   border: none;
   color: white;
   font-size: 13px;
   padding: 5px 10px;
+  margin-left: 08px; 
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
 .delete-btn:hover {
   background: #c0392b;
+}
+
+.done-btn {
+  background: blueviolet;
+  border: none;
+  color: white;
+  font-size: 13px;
+  padding: 5px 10px;
+  margin-left: 2px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.done-btn:hover {
+  background: green;
+}
+
+/* Ensure buttons are grouped and aligned to the right */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item-buttons {
+  display: flex;
+  align-items: center;
 }
